@@ -1,0 +1,11 @@
+[
+  {
+    "usuario": "standard_user",
+    "contrasena": "secret_sauce",
+    "productoUno": "Sauce Labs Backpack",
+    "productoDos": "Sauce Labs Fleece Jacket",
+    "nombre": "Roddy",
+    "apellido": "Zamora",
+    "codigoPostal": "593"
+  }
+]
