@@ -12,7 +12,6 @@ public class JsonDataProvider {
     public static Map<String, String> getData() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         File file = new File(JSON_FILE_PATH);
-        // Leer el primer objeto del JSON (puedes ajustar esto según tus necesidades)
         return objectMapper.readValue(file, Map.class);
     }
 }

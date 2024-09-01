@@ -13,11 +13,11 @@ Característica: Compra de Productos en Swag Labs
   @FlujoCompras
   Escenario: Flujo de compra en la pagina Sauce
     Dado Usuario ingresa a la aplicacion Swag Labs
-    Cuando ingresa su <usuario> y <contrasena> en la pantalla de inicio
+    Cuando ingresa su usuario y contrasena en la pantalla de inicio
     Y hace clic en boton Login
-    Y se elige el <productoUno> y <productoDos> para comprar
+    Y se elige el productoUno y productoDos para comprar
     Y se hace clic en el carrito de compras para verificar los productos agregados
     Y se hace clic en boton verificar
-    Y se ingresa <nombre>, <apellido> y <codigoPostal> del comprador, se hace clic en boton continuar
+    Y se ingresa nombre, apellido y codigoPostal del comprador, se hace clic en boton continuar
     Entonces finalmente se hace clic en boton finalizar y se valida compra exitosa
 

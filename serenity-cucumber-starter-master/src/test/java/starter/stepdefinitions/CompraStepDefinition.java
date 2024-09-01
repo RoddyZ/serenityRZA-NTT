@@ -26,14 +26,14 @@ public class CompraStepDefinition {
         datos = JsonDataProvider.getData();
     }
 
-    @Cuando("ingresa su {string} y {string} en la pantalla de inicio")
-    public void ingresa_su_y_en_la_pantalla_de_inicio(String usuario, String contrasena) throws IOException {
+    @Cuando("ingresa su usuario y contrasena en la pantalla de inicio")
+    public void ingresa_su_y_en_la_pantalla_de_inicio() throws IOException {
         cargarDatos();
         theActorInTheSpotlight().attemptsTo(
                 Ensure.that(USERNAME_FIELD).isDisplayed(),
                 Ensure.that(PASSWORD_FIELD).isDisplayed(),
-                Enter.theValue(datos.get(usuario)).into(USERNAME_FIELD),
-                Enter.theValue(datos.get(contrasena)).into(PASSWORD_FIELD)
+                Enter.theValue(datos.get("usuario")).into(USERNAME_FIELD),
+                Enter.theValue(datos.get("contrasena")).into(PASSWORD_FIELD)
         );
     }
 
@@ -45,14 +45,14 @@ public class CompraStepDefinition {
                 isTrue());
     }
 
-    @Cuando("se elige el {string} y {string} para comprar")
-    public void se_elige_el_y_para_comprar(String productoUno, String productoDos) throws IOException {
+    @Cuando("se elige el productoUno y productoDos para comprar")
+    public void se_elige_el_y_para_comprar() throws IOException {
         cargarDatos();
         // Añadir productos al carrito
         Target agregarProductoUno = Target.the("Producto Uno Add")
-                .located(By.xpath(obtenerXpathProducto(datos.get(productoUno), "Add to cart")));
+                .located(By.xpath(obtenerXpathProducto(datos.get("productoUno"), "Add to cart")));
         Target agregarProductoDos = Target.the("Producto Dos Add")
-                .located(By.xpath(obtenerXpathProducto(datos.get(productoDos), "Add to cart")));
+                .located(By.xpath(obtenerXpathProducto(datos.get("productoDos"), "Add to cart")));
         theActorInTheSpotlight().attemptsTo(
                 Click.on(agregarProductoUno),
                 Click.on(agregarProductoDos)
@@ -60,9 +60,9 @@ public class CompraStepDefinition {
 
         // Verificar que los productos han sido añadidos
         Target removerProductoUno = Target.the("Producto Uno Remove")
-                .located(By.xpath(obtenerXpathProducto(datos.get(productoUno), "Remove")));
+                .located(By.xpath(obtenerXpathProducto(datos.get("productoUno"), "Remove")));
         Target removerProductoDos = Target.the("Producto Dos Remove")
-                .located(By.xpath(obtenerXpathProducto(datos.get(productoDos), "Remove")));
+                .located(By.xpath(obtenerXpathProducto(datos.get("productoDos"), "Remove")));
 
         theActorInTheSpotlight().attemptsTo(
                 Ensure.that(removerProductoUno).isDisplayed(),
@@ -94,7 +94,7 @@ public class CompraStepDefinition {
         );
     }
 
-    @Cuando("se ingresa {string}, {string} y {string} del comprador, se hace clic en boton continuar")
+    @Cuando("se ingresa nombre, apellido y codigoPostal del comprador, se hace clic en boton continuar")
     public void se_ingresa_y_del_comprador_se_hace_clic_en_boton_continuar(String nombre, String apellido, String codigoPostal) throws IOException {
         cargarDatos();
         theActorInTheSpotlight().attemptsTo(
@@ -104,9 +104,9 @@ public class CompraStepDefinition {
         );
 
         theActorInTheSpotlight().attemptsTo(
-                Enter.theValue(datos.get(nombre)).into(PRIMER_NOMBRE),
-                Enter.theValue(datos.get(apellido)).into(PRIMER_APELLIDO),
-                Enter.theValue(datos.get(codigoPostal)).into(CODIGO_POSTAL)
+                Enter.theValue(datos.get("nombre")).into(PRIMER_NOMBRE),
+                Enter.theValue(datos.get("apellido")).into(PRIMER_APELLIDO),
+                Enter.theValue(datos.get("codigoPostal")).into(CODIGO_POSTAL)
         );
 
         theActorInTheSpotlight().attemptsTo(
